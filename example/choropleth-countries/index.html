@@ -11,7 +11,7 @@
   <div id="globeViz"></div>
 
   <script>
-    const colorScale = d3.scaleSequentialSqrt(d3.interpolateYlOrRd);
+    const colorScale = d3.scaleSequential().domain([0, 20]).interpolator(d3.interpolateTurbo);
 
     // GDP per capita (avoiding countries with small pop)
     const getVal = feat => feat.properties.GDP_MD_EST / Math.max(1e5, feat.properties.POP_EST);
